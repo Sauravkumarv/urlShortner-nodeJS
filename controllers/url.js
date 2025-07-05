@@ -10,8 +10,17 @@ async function handleGenerateNewShortnerUrl(req,res){
     redirectURL:body.url,
   
   visitHistory:[],})
-  return res.json({id:shortID})
+
+  const allUrls = await URL.find({});
+
+  return res.render("home",{
+    id:shortID,
+     urls: allUrls,
+  });
  
+
+
+
 }
 async function handleGetAnalytics(req,res){
   const shortId=req.params.shortId;
