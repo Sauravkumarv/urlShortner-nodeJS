@@ -9,7 +9,9 @@ async function handleGenerateNewShortnerUrl(req,res){
   await URL.create({ shortId:shortID,
     redirectURL:body.url,
   
-  visitHistory:[],})
+  visitHistory:[],
+createdBy:req.user._id,
+})
 
   const allUrls = await URL.find({});
 
